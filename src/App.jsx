@@ -30,9 +30,9 @@ const App = () => {
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
   useEffect(() => {
-    console.log(`feedback - ${setFeedback}`);
-    window.localStorage.setItem("saved-feedback", setFeedback);
-  }, [setFeedback]);
+    console.log(`feedback - ${JSON.stringify(feedback)}`);
+    window.localStorage.setItem("saved-feedback", JSON.stringify(feedback));
+  }, [feedback]);
 
   return (
     <div>
