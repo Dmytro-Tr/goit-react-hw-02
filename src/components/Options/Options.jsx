@@ -1,16 +1,6 @@
 import s from "./Options.module.css";
 
-const Options = ({ setFeedback }) => {
-  // const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
-
-  const updateFeedback = (feedbackType) => {
-    // Тут використовуй сеттер, щоб оновити стан
-    setFeedback((prev) => ({
-      ...prev,
-      [feedbackType]: prev[feedbackType] + 1,
-    }));
-  };
-
+const Options = ({ updateFeedback }) => {
   return (
     <div>
       <button
@@ -30,6 +20,12 @@ const Options = ({ setFeedback }) => {
         onClick={() => updateFeedback("bad")}
       >
         Bad
+      </button>
+      <button
+        className={s.btn}
+        onClick={() => updateFeedback("reset")}
+      >
+        Reset
       </button>
     </div>
   );

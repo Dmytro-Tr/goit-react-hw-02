@@ -1,3 +1,8 @@
-.container {}
+.container {
+  margin-bottom: 15px;
+}
 
-.title {}
+.title {
+  margin-bottom: 15px;
+  font-size: 36px;
+}
