@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
@@ -19,12 +19,29 @@ const App = () => {
     }));
   };
 
+  const resetFeedback = () => {
+    setFeedback({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
+  useEffect(() => {
+    console.log(`feedback - ${setFeedback}`);
+    window.localStorage.setItem("saved-feedback", setFeedback);
+  }, [setFeedback]);
 
   return (
     <div>
       <Description />
-      <Options updateFeedback={updateFeedback} />
+      <Options
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        resetFeedback={resetFeedback}
+      />
       {totalFeedback > 0 ? (
         <Feedback
           feedback={feedback}

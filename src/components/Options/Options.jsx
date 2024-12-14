@@ -1,6 +1,6 @@
 import s from "./Options.module.css";
 
-const Options = ({ updateFeedback }) => {
+const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
   return (
     <div>
       <button
@@ -21,12 +21,17 @@ const Options = ({ updateFeedback }) => {
       >
         Bad
       </button>
-      <button
-        className={s.btn}
-        onClick={() => updateFeedback("reset")}
-      >
-        Reset
-      </button>
+
+      {totalFeedback > 0 ? (
+        <button
+          className={s.btn}
+          onClick={() => resetFeedback("reset")}
+        >
+          Reset
+        </button>
+      ) : (
+        ``
+      )}
     </div>
   );
 };
