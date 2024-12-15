@@ -1,7 +1,7 @@
 import s from "./Feedback.module.css";
 
-const Feedback = ({ feedback, totalFeedback }) => {
-  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+const Feedback = ({ feedback, totalFeedback, positiveFeedback }) => {
+  // const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
   return (
     <div>

@@ -28,6 +28,7 @@ const App = () => {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
   useEffect(() => {
     // console.log(`feedback - ${JSON.stringify(feedback)}`);
@@ -46,6 +47,7 @@ const App = () => {
         <Feedback
           feedback={feedback}
           totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
         />
       ) : (
         <Notification />
