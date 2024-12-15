@@ -1,8 +1,6 @@
 import s from "./Feedback.module.css";
 
 const Feedback = ({ feedback, totalFeedback, positiveFeedback }) => {
-  // const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
-
   return (
     <div>
       <ul className={s.list}>

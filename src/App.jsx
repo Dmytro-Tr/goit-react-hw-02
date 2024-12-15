@@ -5,10 +5,19 @@ import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
 
 const App = () => {
-  const [feedback, setFeedback] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  // const [feedback, setFeedback] = useState({
+  //   good: 0,
+  //   neutral: 0,
+  //   bad: 0,
+  // });
+
+  const [feedback, setFeedback] = useState(() => {
+    const savedFeedback = window.localStorage.getItem("feedback");
+
+    if (savedFeedback !== null) {
+      return JSON.parse(savedFeedback); // Якщо дані є, парсимо їх
+    }
+    return { good: 0, neutral: 0, bad: 0 }; // Якщо немає, повертаємо нулі
   });
 
   const updateFeedback = (feedbackType) => {
